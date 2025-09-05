@@ -111,7 +111,7 @@ export const usePortfolio = (walletAddress: string | null, chainId: number = 1) 
     }
   }, [getFallbackPrices]);
 
-  // Fetch real token balances from blockchain - FIXED TYPES
+  // Fetch real token balances from blockchain
   const fetchTokenBalances = useCallback(async (): Promise<Token[]> => {
     if (!walletAddress) return [];
 
@@ -297,13 +297,13 @@ export const usePortfolio = (walletAddress: string | null, chainId: number = 1) 
     }
   }, [walletAddress, realTimePrices]);
 
-  // Calculate portfolio analytics - FIXED TYPES
+  // Calculate portfolio analytics
   const calculateAnalytics = useCallback((tokens: Token[], positions: DeFiPosition[]) => {
     const totalTokenValue = tokens.reduce((sum, token) => sum + token.value, 0);
     const totalDefiValue = positions.reduce((sum, pos) => sum + pos.totalValue, 0);
     const totalValue = totalTokenValue + totalDefiValue;
 
-    // Find top performer by price change - FIXED NULL CHECK
+    // Find top performer by price change 
     const topPerformer = tokens.reduce((best, token) => {
       if (!best) return token;
       return token.priceChange24h > best.priceChange24h ? token : best;
@@ -339,7 +339,7 @@ export const usePortfolio = (walletAddress: string | null, chainId: number = 1) 
     };
   }, []);
 
-  // Main portfolio fetch function - FIXED TYPES
+  // Main portfolio fetch function
   const fetchPortfolio = useCallback(async () => {
     if (!walletAddress) {
       setPortfolio(null);
@@ -423,7 +423,7 @@ export const usePortfolio = (walletAddress: string | null, chainId: number = 1) 
     realTimePrices,
   ]);
 
-  // Setup WebSocket connection (unchanged - working correctly)
+  // Setup WebSocket connection
   useEffect(() => {
     if (!walletAddress) return;
 

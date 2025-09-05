@@ -56,7 +56,7 @@ export const WalletConnect: React.FC = () => {
     window.open('https://metamask.io/download/', '_blank');
   };
 
-  // Fixed getNetworkInfo function with proper typing
+  // getNetworkInfo function with proper typing
   const getNetworkInfo = (chainId: number | null): NetworkConfig & { isSupported: boolean } => {
     if (!chainId) {
       return { 

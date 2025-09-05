@@ -148,9 +148,7 @@ class CoinGeckoService {
 // Create and export singleton instance
 export const coinGeckoService = new CoinGeckoService();
 
-// ===================================================================================================
-// Enhanced fetchTokenPrices function for usePortfolio hook
-// ===================================================================================================
+// fetchTokenPrices function for usePortfolio hook
 
 export const fetchTokenPricesWithFallback = async (
   tokenIds: string[]
