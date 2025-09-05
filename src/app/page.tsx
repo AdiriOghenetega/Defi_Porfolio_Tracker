@@ -16,11 +16,11 @@ export default function Home() {
     <div className="min-h-screen bg-gray-50 dark:bg-dark-bg">
       <Header />
       
-      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+      <main className="mx-auto px-4 sm:px-6 lg:px-8 py-8">
         {!isConnected ? (
           // Welcome screen
           <div className="text-center py-16">
-            <div className="max-w-md mx-auto">
+            <div className="mx-auto">
               <div className="w-20 h-20 bg-gradient-to-r from-primary-500 to-primary-600 rounded-full flex items-center justify-center mx-auto mb-6">
                 <svg className="w-10 h-10 text-white" fill="currentColor" viewBox="0 0 24 24">
                   <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
@@ -35,7 +35,7 @@ export default function Home() {
                 Connect your wallet to view and manage your DeFi positions and cryptocurrency portfolio all in one place.
               </p>
 
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-12">
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-12 w-full">
                 <div className="text-center p-6 bg-white dark:bg-dark-card rounded-lg shadow-md border border-gray-200 dark:border-dark-border">
                   <div className="w-12 h-12 bg-blue-100 dark:bg-blue-900/20 rounded-lg flex items-center justify-center mx-auto mb-4">
                     <svg className="w-6 h-6 text-blue-600 dark:text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -108,7 +108,7 @@ export default function Home() {
             )}
 
             <div id="overview">
-              <PortfolioOverview portfolio={portfolio} loading={loading} />
+              <PortfolioOverview portfolio={portfolio} loading={loading} isRealTimeEnabled={true} />
             </div>
 
             <div className="grid grid-cols-1 xl:grid-cols-2 gap-8">
