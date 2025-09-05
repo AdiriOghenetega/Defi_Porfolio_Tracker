@@ -17,6 +17,7 @@ export const formatBalance = (balance: string, decimals = 18): string => {
     if (num < 1000000) return `${(num / 1000).toFixed(1)}K`;
     return `${(num / 1000000).toFixed(1)}M`;
   } catch (error) {
+    console.log(error)
     return '0';
   }
 };

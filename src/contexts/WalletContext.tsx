@@ -11,8 +11,8 @@ interface WalletContextType {
   switchNetwork: (chainId: number) => Promise<void>;
   isConnected: boolean;
   isNetworkSupported?: (chainId: number | null) => boolean;
-  getNetworkInfo?: (chainId: number | null) => any;
-  isMetaMaskInstalled: () => boolean; // ← Added this missing property
+  getNetworkInfo?: (chainId: number | null) => unknown;
+  isMetaMaskInstalled: () => boolean;
 }
 
 const WalletContext = createContext<WalletContextType | undefined>(undefined);

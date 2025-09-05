@@ -116,7 +116,7 @@ export const Header: React.FC = () => {
         {isConnected && mobileMenuOpen && (
           <div className="md:hidden border-t border-gray-200 dark:border-gray-700 py-4 overflow-hidden">
             <nav className="space-y-2">
-              {navigationItems.map((item, index) => (
+              {navigationItems.map((item) => (
                 <a
                   key={item.name}
                   href={item.href}

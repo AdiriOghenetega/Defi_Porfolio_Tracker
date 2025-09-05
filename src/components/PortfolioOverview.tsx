@@ -5,7 +5,6 @@ import { Portfolio } from '@/types';
 import { formatCurrency, formatPercentage } from '@/utils/helpers';
 import { LoadingSkeleton } from './ui/LoadingSkeleton';
 import { MetricCard } from './ui/MetricCard';
-import { AnimatedButton } from './ui/AnimatedButton';
 
 interface PortfolioOverviewProps {
   portfolio: Portfolio | null;
@@ -134,7 +133,6 @@ const PortfolioChart: React.FC<{
 export const PortfolioOverview: React.FC<PortfolioOverviewProps> = ({
   portfolio,
   loading,
-  onRefresh,
   isRealTimeEnabled = false,
 }) => {
   const { walletValue, defiValue } = useMemo(() => {
@@ -344,7 +342,7 @@ export const PortfolioOverview: React.FC<PortfolioOverviewProps> = ({
           {portfolio.tokens
             .sort((a, b) => b.value - a.value)
             .slice(0, 3)
-            .map((token, index) => (
+            .map((token) => (
               <div
                 key={token.address}
                 className="flex items-center justify-between p-4 bg-white/50 dark:bg-gray-800/50 rounded-xl hover:bg-white/70 dark:hover:bg-gray-800/70 transition-all duration-200 group"

@@ -1,8 +1,8 @@
 'use client';
 
-import { useState, useEffect, useCallback, useMemo } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { ethers } from 'ethers';
-import { Portfolio, Token, DeFiPosition, ApiError, TokenConfig } from '@/types';
+import { Portfolio, Token, DeFiPosition, ApiError } from '@/types';
 import { DEFAULT_TOKENS, SUPPORTED_CHAINS } from '@/utils/constants';
 import { checkRateLimit } from '@/utils/helpers';
 
@@ -416,7 +416,6 @@ export const usePortfolio = (walletAddress: string | null, chainId: number = 1) 
     }
   }, [
     walletAddress,
-    chainId,
     fetchTokenBalances,
     fetchTokenPrices,
     fetchDeFiPositions,
@@ -508,7 +507,7 @@ export const usePortfolio = (walletAddress: string | null, chainId: number = 1) 
         };
 
       } catch (err) {
-        console.warn('Failed to create WebSocket connection, using polling fallback');
+        console.warn('Failed to create WebSocket connection, using polling fallback',err);
         setWsConnectionStatus('error');
       }
     };
@@ -579,7 +578,7 @@ export const usePortfolio = (walletAddress: string | null, chainId: number = 1) 
       analytics,
     } : null);
 
-  }, [portfolio?.tokens, portfolio?.defiPositions, realTimePrices, calculateAnalytics]);
+  }, [portfolio?.tokens, portfolio?.defiPositions, realTimePrices, calculateAnalytics,portfolio]);
 
   const refreshPortfolio = useCallback(() => {
     fetchPortfolio();
